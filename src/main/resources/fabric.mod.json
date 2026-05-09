@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "ultimate_shulker_trims",
+  "version": "${version}",
+  "name": "Ultimate Shulker Trims",
+  "description": "Apply Armor Trims to Shulker Boxes",
+  "authors": [
+    "Nanaky",
+    "wlritchi"
+  ],
+  "contact": {
+    "homepage": "https://github.com/nanakytim",
+    "sources": "https://github.com/nanakytim/ultimate_shulker_trims"
+  },
+  "license": "GPL-3.0",
+  "icon": "icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": ["net.nanaky.ultimate_shulker_trims.UltimateShulkerTrims"],
+    "client": ["net.nanaky.ultimate_shulker_trims.client.UltimateShulkerTrimsClient"]
+  },
+  "mixins": ["ultimate_shulker_trims.mixins.json"],
+  "depends": {
+    "fabricloader": ">=0.18.4",
+    "minecraft": "~26.1",
+    "java": ">=25",
+    "fabric-api": "*"
+  }
+}

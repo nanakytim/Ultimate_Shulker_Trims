@@ -1,0 +1,6 @@
+{
+  "type": "ultimate_shulker_trims:shulker_trim",
+  "template": "minecraft:wayfinder_armor_trim_smithing_template",
+  "base": "#ultimate_shulker_trims:shulker_boxes",
+  "addition": "#minecraft:trim_materials"
+}

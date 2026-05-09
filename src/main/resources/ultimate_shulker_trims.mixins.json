@@ -1,0 +1,20 @@
+{
+  "required": true,
+  "package": "net.nanaky.ultimate_shulker_trims.mixin",
+  "compatibilityLevel": "JAVA_25",
+  "mixins": [
+    "BlockPlacementDispenserBehaviorMixin",
+    "ShulkerBoxBlockEntityMixin",
+    "ShulkerBoxBlockMixin"
+  ],
+  "client": [
+    "ItemModelManagerMixin",
+    "LayerRenderStateMixin",
+    "ShulkerBoxBlockEntityRendererMixin",
+    "ShulkerBoxBlockEntityRenderStateMixin",
+    "ShulkerBoxModelRendererMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
