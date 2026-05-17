@@ -55,16 +55,17 @@ public abstract class ShulkerBoxBlockEntityMixin extends BlockEntity implements 
 
   @Inject(method = "saveAdditional", at = @At("RETURN"))
   private void shulkerTrims$saveTrim(ValueOutput output, CallbackInfo ci) {
-    // trim lives in CUSTOM_DATA component — no extra save needed here,
-    // but reset cache validity so it re-reads on next load
+    final ShulkerTrim trim = this.shulkerTrims$cachedTrim;
+    if (trim != null) {
+    } 
   }
 
   @Inject(method = "loadAdditional", at = @At("RETURN"))
   private void shulkerTrims$loadTrim(ValueInput input, CallbackInfo ci) {
-    // Reset cache so getTrim() re-reads from components on next access
+    
     this.shulkerTrims$trimLoaded = false;
     this.shulkerTrims$cachedTrim = null;
-    // Also check for sync NBT sent from server (toInitialChunkData)
+    
     ShulkerTrim syncTrim = ShulkerTrimStorage.readTrimFromData(input);
     if (syncTrim != null) {
       this.shulkerTrims$cachedTrim = syncTrim;

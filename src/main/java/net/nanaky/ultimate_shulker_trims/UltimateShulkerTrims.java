@@ -13,7 +13,7 @@ public class UltimateShulkerTrims implements ModInitializer {
   public void onInitialize() {
     LOGGER.info("Shulker Trims initializing...");
 
-    // Register recipe serializers
+    
     ShulkerTrimsRecipeSerializers.register();
 
     LOGGER.info("Shulker Trims initialized");

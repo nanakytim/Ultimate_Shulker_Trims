@@ -51,7 +51,7 @@ public abstract class ShulkerBoxBlockEntityRendererMixin {
     SpriteId trimSpriteId = ShulkerTrimRenderer.getTrimSpriteId(trim);
 
     poseStack.pushPose();
-    // Apply the direction transform — this is what fixes the offset and vertical flip
+    
     ShulkerBoxRenderer self = (ShulkerBoxRenderer)(Object)this;
     com.mojang.math.Transformation transform = ShulkerBoxRenderer.modelTransform(state.direction);
     com.mojang.blaze3d.vertex.PoseStack.Pose pose = poseStack.last();

@@ -6,7 +6,6 @@ import net.nanaky.ultimate_shulker_trims.client.ItemTrimRenderContext;
 import net.minecraft.world.level.block.ShulkerBoxBlock;
 import net.minecraft.client.renderer.item.ItemModelResolver;
 import net.minecraft.client.renderer.item.ItemStackRenderState;
-import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.world.entity.ItemOwner;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.ItemDisplayContext;
@@ -45,17 +44,17 @@ public class ItemModelManagerMixin {
     shulkerTrims$captureTrim(output, item);
   }
 
-  @Inject(method = "updateForTopItem", at = @At("HEAD"))
-  private void shulkerTrims$captureTrimTopItem(
-      ItemStackRenderState output,
-      ItemStack item,
-      ItemDisplayContext displayContext,
-      @Nullable Level level,
-      @Nullable ItemOwner owner,
-      int seed,
-      CallbackInfo ci) {
-    shulkerTrims$captureTrim(output, item);
-  }
+    @Inject(method = "updateForTopItem", at = @At("HEAD"))
+    private void shulkerTrims$captureTrimTopItem(
+        ItemStackRenderState output,
+        ItemStack item,
+        ItemDisplayContext displayContext,
+        @Nullable Level level,
+        @Nullable ItemOwner owner,
+        int seed,
+        CallbackInfo ci) {
+      shulkerTrims$captureTrim(output, item);
+    }
 
   @Inject(
       method = "appendItemLayers",
@@ -73,4 +72,12 @@ public class ItemModelManagerMixin {
       output.appendModelIdentityElement(trim);
     }
   }
+
+    @Inject(method = { "updateForTopItem" }, at = { @At("TAIL") })
+    private void shulkerTrims$addTrimToModelKeyTopItem(final ItemStackRenderState output, final ItemStack item, final ItemDisplayContext displayContext, final Level level, final ItemOwner owner, final int seed, final CallbackInfo ci) {
+        final ShulkerTrim trim = ItemTrimRenderContext.getTrim(output);
+        if (trim != null) {
+            output.appendModelIdentityElement((Object)trim);
+        }
+    }
 }

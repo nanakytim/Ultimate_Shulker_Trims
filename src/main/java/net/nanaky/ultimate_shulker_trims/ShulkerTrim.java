@@ -3,10 +3,7 @@ package net.nanaky.ultimate_shulker_trims;
 import java.util.Objects;
 import org.jetbrains.annotations.NotNull;
 
-/**
- * Represents a trim applied to a shulker box. Platform-agnostic data model used by both Fabric and
- * Bukkit implementations.
- */
+
 public record ShulkerTrim(@NotNull String pattern, @NotNull String material) {
   public static final String NBT_KEY = "ultimate_shulker_trims:trim";
   public static final String NBT_PATTERN_KEY = "pattern";
@@ -17,22 +14,22 @@ public record ShulkerTrim(@NotNull String pattern, @NotNull String material) {
     Objects.requireNonNull(material, "material cannot be null");
   }
 
-  /** Validates that the pattern is a valid Minecraft identifier. */
+  
   public boolean hasValidPattern() {
     return isValidIdentifier(pattern);
   }
 
-  /** Validates that the material is a valid Minecraft identifier. */
+  
   public boolean hasValidMaterial() {
     return isValidIdentifier(material);
   }
 
-  /** Checks if both pattern and material are valid identifiers. */
+  
   public boolean isValid() {
     return hasValidPattern() && hasValidMaterial();
   }
 
-  /** Simple validation for Minecraft resource identifiers (namespace:path format). */
+  
   private static boolean isValidIdentifier(String id) {
     if (id == null || id.isEmpty()) {
       return false;

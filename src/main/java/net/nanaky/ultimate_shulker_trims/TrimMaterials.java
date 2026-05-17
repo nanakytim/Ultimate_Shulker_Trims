@@ -2,11 +2,11 @@ package net.nanaky.ultimate_shulker_trims;
 
 import java.util.Map;
 
-/** Trim material color palette, matching vanilla armor trim colors. */
+
 public final class TrimMaterials {
   private TrimMaterials() {}
 
-  /** Material colors as RGB integers. These match vanilla armor trim material palettes. */
+  
   public static final Map<String, Integer> COLORS =
       Map.ofEntries(
           Map.entry("minecraft:quartz", 0xE3D4C4),
@@ -20,12 +20,12 @@ public final class TrimMaterials {
           Map.entry("minecraft:lapis", 0x416E97),
           Map.entry("minecraft:amethyst", 0x9A5CC6));
 
-  /** Get the color for a material, or a default gray if unknown. */
+  
   public static int getColor(String material) {
     return COLORS.getOrDefault(material, 0x808080);
   }
 
-  /** Get color components as floats (0.0-1.0) for rendering. */
+  
   public static float[] getColorComponents(String material) {
     int color = getColor(material);
     return new float[] {

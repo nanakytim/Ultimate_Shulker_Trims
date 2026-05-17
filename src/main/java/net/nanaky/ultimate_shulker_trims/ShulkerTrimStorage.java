@@ -15,7 +15,7 @@ public final class ShulkerTrimStorage {
   public static final String PATTERN_KEY = "pattern";
   public static final String MATERIAL_KEY = "material";
 
-  /** Write trim data into a CompoundTag (for NBT persistence). */
+  
   public static void writeTrim(CompoundTag nbt, @Nullable ShulkerTrim trim) {
     if (trim == null) {
       nbt.remove(TRIM_KEY);
@@ -27,7 +27,7 @@ public final class ShulkerTrimStorage {
     nbt.put(TRIM_KEY, trimNbt);
   }
 
-  /** Read trim data from a CompoundTag. */
+  
   @Nullable
   public static ShulkerTrim readTrim(CompoundTag nbt) {
     CompoundTag trimNbt = nbt.getCompound(TRIM_KEY).orElse(null);
@@ -50,7 +50,7 @@ public final class ShulkerTrimStorage {
     return trim;
   }
 
-  /** Read trim from an ItemStack's CUSTOM_DATA component. */
+  
   @Nullable
   public static ShulkerTrim readTrimFromItem(ItemStack stack) {
     CustomData customData = stack.get(DataComponents.CUSTOM_DATA);
@@ -58,7 +58,7 @@ public final class ShulkerTrimStorage {
     return readTrim(customData.copyTag());
   }
 
-  /** Write trim to an ItemStack's CUSTOM_DATA component. */
+  
   public static void writeTrimToItem(ItemStack stack, @Nullable ShulkerTrim trim) {
     if (trim == null) {
       CustomData.update(DataComponents.CUSTOM_DATA, stack, tag -> tag.remove(TRIM_KEY));
@@ -72,7 +72,7 @@ public final class ShulkerTrimStorage {
     });
   }
 
-  /** Read trim from a ValueInput (block entity persistence). */
+  
   @Nullable
   public static ShulkerTrim readTrimFromData(ValueInput data) {
     Optional<ValueInput> trimData = data.child(TRIM_KEY);
