@@ -2,6 +2,7 @@ package net.nanaky.ultimate_shulker_trims.mixin;
 
 import net.nanaky.ultimate_shulker_trims.ShulkerTrim;
 import net.nanaky.ultimate_shulker_trims.TrimmedShulkerBox;
+import net.nanaky.ultimate_shulker_trims.UltimateShulkerTrims;
 import net.nanaky.ultimate_shulker_trims.client.ShulkerTrimRenderer;
 import net.nanaky.ultimate_shulker_trims.client.TrimmedShulkerRenderState;
 import com.mojang.blaze3d.vertex.PoseStack;
@@ -49,6 +50,7 @@ public abstract class ShulkerBoxBlockEntityRendererMixin {
     if (trim == null) return;
 
     SpriteId trimSpriteId = ShulkerTrimRenderer.getTrimSpriteId(trim);
+    UltimateShulkerTrims.LOGGER.info("TRIM DEBUG: trim={} spriteId={}", trim, trimSpriteId); //DELETE
 
     poseStack.pushPose();
     

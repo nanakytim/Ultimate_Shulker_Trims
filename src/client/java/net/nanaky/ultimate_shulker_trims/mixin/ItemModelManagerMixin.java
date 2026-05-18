@@ -72,12 +72,4 @@ public class ItemModelManagerMixin {
       output.appendModelIdentityElement(trim);
     }
   }
-
-    @Inject(method = { "updateForTopItem" }, at = { @At("TAIL") })
-    private void shulkerTrims$addTrimToModelKeyTopItem(final ItemStackRenderState output, final ItemStack item, final ItemDisplayContext displayContext, final Level level, final ItemOwner owner, final int seed, final CallbackInfo ci) {
-        final ShulkerTrim trim = ItemTrimRenderContext.getTrim(output);
-        if (trim != null) {
-            output.appendModelIdentityElement((Object)trim);
-        }
-    }
 }
