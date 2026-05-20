@@ -8,29 +8,33 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import org.spongepowered.asm.mixin.Shadow;
 
-@Mixin(ItemStackRenderState.class)
+@Mixin(targets = "net.minecraft.client.renderer.item.ItemStackRenderState$LayerRenderState")
 public class LayerRenderStateMixin {
 
-  @Inject(method = "submit", at = @At("HEAD"))
-  private void shulkerTrims$setCurrentRenderState(
-      PoseStack poseStack,
-      SubmitNodeCollector submitNodeCollector,
-      int lightCoords,
-      int overlayCoords,
-      int outlineColor,
-      CallbackInfo ci) {
-    ItemTrimRenderContext.setCurrentRenderState((ItemStackRenderState)(Object)this);
-  }
+    @Shadow
+    private ItemStackRenderState this$0;
 
-  @Inject(method = "submit", at = @At("RETURN"))
-  private void shulkerTrims$clearCurrentRenderState(
-      PoseStack poseStack,
-      SubmitNodeCollector submitNodeCollector,
-      int lightCoords,
-      int overlayCoords,
-      int outlineColor,
-      CallbackInfo ci) {
-    ItemTrimRenderContext.clearCurrentRenderState();
-  }
+    @Inject(method = "submit", at = @At("HEAD"))
+    private void shulkerTrims$setCurrentRenderState(
+        PoseStack poseStack,
+        SubmitNodeCollector submitNodeCollector,
+        int lightCoords,
+        int overlayCoords,
+        int outlineColor,
+        CallbackInfo ci) {
+        ItemTrimRenderContext.setCurrentRenderState(this.this$0);
+    }
+
+    @Inject(method = "submit", at = @At("RETURN"))
+    private void shulkerTrims$clearCurrentRenderState(
+        PoseStack poseStack,
+        SubmitNodeCollector submitNodeCollector,
+        int lightCoords,
+        int overlayCoords,
+        int outlineColor,
+        CallbackInfo ci) {
+        ItemTrimRenderContext.clearCurrentRenderState();
+    }
 }

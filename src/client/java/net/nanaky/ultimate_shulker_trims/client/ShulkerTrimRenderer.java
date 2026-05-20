@@ -17,7 +17,7 @@ public final class ShulkerTrimRenderer {
   }
 
   public static SpriteId getTrimSpriteId(ShulkerTrim trim) {
-    return new SpriteId(Sheets.ARMOR_TRIMS_SHEET, getTrimTextureId(trim));
+    return new SpriteId(Sheets.SHULKER_SHEET, getTrimTextureId(trim));
   }
 
   private static String getPath(@Nullable String identifier) {

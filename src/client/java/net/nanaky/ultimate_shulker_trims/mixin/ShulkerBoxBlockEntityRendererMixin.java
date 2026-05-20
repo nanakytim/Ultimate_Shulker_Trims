@@ -50,7 +50,6 @@ public abstract class ShulkerBoxBlockEntityRendererMixin {
     if (trim == null) return;
 
     SpriteId trimSpriteId = ShulkerTrimRenderer.getTrimSpriteId(trim);
-    UltimateShulkerTrims.LOGGER.info("TRIM DEBUG: trim={} spriteId={}", trim, trimSpriteId); //DELETE
 
     poseStack.pushPose();
     

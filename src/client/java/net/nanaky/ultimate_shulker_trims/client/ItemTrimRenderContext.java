@@ -1,8 +1,10 @@
 package net.nanaky.ultimate_shulker_trims.client;
 
 import net.nanaky.ultimate_shulker_trims.ShulkerTrim;
+
+import java.util.Collections;
 import java.util.Map;
-import java.util.HashMap;
+import java.util.WeakHashMap;
 import net.minecraft.client.renderer.item.ItemStackRenderState;
 import org.jetbrains.annotations.Nullable;
 
@@ -11,7 +13,8 @@ public final class ItemTrimRenderContext {
   private ItemTrimRenderContext() {}
 
   
-  private static final Map<ItemStackRenderState, ShulkerTrim> TRIM_MAP = new HashMap<>();
+  private static final Map<ItemStackRenderState, ShulkerTrim> TRIM_MAP =
+      Collections.synchronizedMap(new WeakHashMap<>());
 
   
   private static final ThreadLocal<ItemStackRenderState> CURRENT_RENDER_STATE =
