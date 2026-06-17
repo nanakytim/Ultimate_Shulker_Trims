@@ -21,8 +21,8 @@
   },
   "mixins": ["ultimate_shulker_trims.mixins.json"],
   "depends": {
-    "fabricloader": ">=0.18.4",
-    "minecraft": "~26.1",
+    "fabricloader": ">=0.19.0",
+    "minecraft": "~26.2",
     "java": ">=25",
     "fabric-api": "*"
   }

@@ -6,6 +6,8 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.component.CustomData;
 import net.minecraft.world.level.storage.ValueInput;
+import net.minecraft.world.level.storage.ValueOutput;
+
 import org.jspecify.annotations.Nullable;
 
 public final class ShulkerTrimStorage {
@@ -70,6 +72,15 @@ public final class ShulkerTrimStorage {
       trimNbt.putString(MATERIAL_KEY, trim.material());
       tag.put(TRIM_KEY, trimNbt);
     });
+  }
+
+  public static void writeTrimToData(ValueOutput output, @Nullable ShulkerTrim trim) {
+      if (trim == null) {
+          return;
+      }
+      ValueOutput trimOut = output.child(TRIM_KEY);
+      trimOut.putString(PATTERN_KEY, trim.pattern());
+      trimOut.putString(MATERIAL_KEY, trim.material());
   }
 
   

@@ -37,9 +37,9 @@ public abstract class ShulkerBoxBlockEntityMixin extends BlockEntity implements 
   @Override
   public @Nullable ShulkerTrim shulkerTrims$getTrim() {
     if (!this.shulkerTrims$trimLoaded) {
-      this.shulkerTrims$trimLoaded = true;
       CustomData customData = this.components().get(DataComponents.CUSTOM_DATA);
       if (customData != null) {
+        this.shulkerTrims$trimLoaded = true;
         this.shulkerTrims$cachedTrim = ShulkerTrimStorage.readTrim(customData.copyTag());
       }
     }
@@ -57,6 +57,7 @@ public abstract class ShulkerBoxBlockEntityMixin extends BlockEntity implements 
   private void shulkerTrims$saveTrim(ValueOutput output, CallbackInfo ci) {
     final ShulkerTrim trim = this.shulkerTrims$cachedTrim;
     if (trim != null) {
+      ShulkerTrimStorage.writeTrimToData(output, trim);
     } 
   }
 
