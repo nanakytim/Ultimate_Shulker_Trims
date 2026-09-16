@@ -15,7 +15,9 @@
         "lapis": "minecraft:trim/lapis",
         "amethyst": "minecraft:trim/amethyst",
         "resin": "minecraft:trim/resin",
-        "platinum": "illagerinvasion:trim/platinum"
+        "platinum": "illagerinvasion:trim/platinum",
+        "glowworm_silk": "biomesoplenty:trim/glowworm_silk",
+        "rose_quartz": "biomesoplenty:trim/rose_quartz"
       },
       "textures": [
         "ultimate_shulker_trims:trims/entity/shulker/sentry",
