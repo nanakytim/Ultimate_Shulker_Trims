@@ -14,7 +14,10 @@
         "emerald": "minecraft:trims/color_palettes/emerald",
         "lapis": "minecraft:trims/color_palettes/lapis",
         "amethyst": "minecraft:trims/color_palettes/amethyst",
-        "resin": "minecraft:trims/color_palettes/resin"
+        "resin": "minecraft:trims/color_palettes/resin",
+        "platinum": "illagerinvasion:trims/color_palettes/platinum",
+        "glowworm_silk": "biomesoplenty:trims/color_palettes/glowworm_silk",
+        "rose_quartz": "biomesoplenty:trims/color_palettes/rose_quartz"
       },
       "textures": [
         "ultimate_shulker_trims:trims/entity/shulker/sentry",
